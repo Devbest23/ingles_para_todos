@@ -279,6 +279,49 @@ function cerrarModal() {
   pararAudio();
 }
 
+/* ---------- MODAL INFORMATIVO: Términos y Privacidad ---------- */
+const info = {
+  terminos: {
+    titulo: 'Términos de uso',
+    subtitulo: 'El Inglés para Todos',
+    items: [
+      '"El Inglés para Todos" es una plataforma educativa con fines académicos, desarrollada como proyecto del curso Tecnopedagogía de la Universidad del Zulia.',
+      'Los ejercicios y contenidos están disponibles para la práctica personal y educativa. Puedes usarlos en clase citando la fuente.',
+      'Las cifras y datos de la sección "El inglés en cifras" provienen de las fuentes indicadas (Ethnologue, W3Techs, The World Factbook y Naciones Unidas).',
+      'La plataforma no garantiza resultados de aprendizaje: el progreso depende de la práctica constante de cada persona.',
+      'No se permite el uso comercial del material sin autorización del equipo.'
+    ]
+  },
+  privacidad: {
+    titulo: 'Política de privacidad',
+    subtitulo: 'El Inglés para Todos',
+    items: [
+      'Esta plataforma no recopila datos personales: no hay formularios, registros ni cuentas de usuario.',
+      'El progreso de los ejercicios se guarda únicamente en tu navegador mientras la página está abierta; al recargarla o cerrarla, se reinicia.',
+      'No se usan cookies de seguimiento ni herramientas de publicidad.',
+      'Las marcas, enlaces externos y contenidos citados pertenecen a sus respectivos dueños.',
+      'Para dudas sobre privacidad, escribe a abienegomontiel@gmail.com.'
+    ]
+  }
+};
+
+function abrirInfo(tipo) {
+  const d = info[tipo];
+  if (!d) return;
+  claveActual = null;
+  ejercicioActual = null;
+  pararAudio();
+  document.getElementById('modalContenido').innerHTML = `
+    <h2>${d.titulo}</h2>
+    <div class="modal-edad">${d.subtitulo}</div>
+    <ul class="info-lista">
+      ${d.items.map(t => `<li>${t}</li>`).join('')}
+    </ul>
+  `;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
 /* ---------- VISTA 1: LISTA DE EJERCICIOS ---------- */
 function renderLista() {
   const d = datos[claveActual];
@@ -410,7 +453,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ---------- Nav activo según scroll ---------- */
 window.addEventListener('scroll', () => {
-  const secciones = ['inicio', 'ninos', 'adolescentes', 'jovenes', 'adultos', 'mayores', 'recursos', 'contacto'];
+  const secciones = ['inicio', 'ninos', 'adolescentes', 'jovenes', 'adultos', 'mayores', 'mundo', 'contacto'];
   let actual = 'inicio';
   secciones.forEach(id => {
     const el = document.getElementById(id);

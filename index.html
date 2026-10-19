@@ -24,7 +24,7 @@
         <li><a href="#jovenes" onclick="abrirModal('jovenes')">Jóvenes</a></li>
         <li><a href="#adultos" onclick="abrirModal('adultos')">Adultos</a></li>
         <li><a href="#mayores" onclick="abrirModal('mayores')">Personas mayores</a></li>
-        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#mundo">El inglés hoy</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -49,7 +49,7 @@
       <div class="card-icono">🧒</div>
       <h3>1. NIÑOS</h3>
       <div class="edad-rango">6 – 11 años</div>
-      <p>Inglés divertido para pequeños exploradores. Canciones, juegos y vocabulario visual.</p>
+      <p>Inglés divertido para pequeños exploradores. Vocabulario visual y ejercicios sencillos: colores, números, animales y familia.</p>
       <button class="btn-card" onclick="abrirModal('ninos')">Descubre más</button>
     </div>
 
@@ -57,7 +57,7 @@
       <div class="card-icono">🎧</div>
       <h3>2. ADOLESCENTES</h3>
       <div class="edad-rango">12 – 17 años</div>
-      <p>Preparación para el futuro e intercambios. Temas escolares y de interés cotidiano.</p>
+      <p>Temas escolares y de interés cotidiano: rutinas, gustos, deportes, música y expresiones frecuentes.</p>
       <button class="btn-card" onclick="abrirModal('adolescentes')">Descubre más</button>
     </div>
 
@@ -65,7 +65,7 @@
       <div class="card-icono">🎓</div>
       <h3>3. JÓVENES</h3>
       <div class="edad-rango">18 – 25 años</div>
-      <p>Certificaciones y universidad para el éxito. Inglés académico y profesional inicial.</p>
+      <p>Inglés académico y profesional inicial: viajes, estudios, tecnología y preparación para entrevistas.</p>
       <button class="btn-card" onclick="abrirModal('jovenes')">Descubre más</button>
     </div>
 
@@ -73,7 +73,7 @@
       <div class="card-icono">💼</div>
       <h3>4. ADULTOS</h3>
       <div class="edad-rango">26 – 59 años</div>
-      <p>Inglés para el mundo laboral y negocios. Comunicación funcional para la vida diaria.</p>
+      <p>Inglés funcional para el trabajo y la vida diaria: atención al público, viajes, hotel, restaurante y compras.</p>
       <button class="btn-card" onclick="abrirModal('adultos')">Descubre más</button>
     </div>
 
@@ -81,16 +81,16 @@
       <div class="card-icono">👴</div>
       <h3>5. PERSONAS MAYORES</h3>
       <div class="edad-rango">60+ años</div>
-      <p>Aprende a tu propio ritmo, conecta y disfruta. Ejercicios cortos y progresivos.</p>
+      <p>Aprende a tu propio ritmo. Ejercicios cortos y progresivos de saludos, familia, cortesía y conversación cotidiana.</p>
       <button class="btn-card" onclick="abrirModal('mayores')">Descubre más</button>
     </div>
 
-    <div class="card-edad" id="recursos">
-      <div class="card-icono">📚</div>
-      <h3>6. RECURSOS</h3>
-      <div class="edad-rango">Todos los niveles</div>
-      <p>Guías, ejercicios y material de práctica exclusivo. Biblioteca digital completa.</p>
-      <button class="btn-card" onclick="document.getElementById('recursos-section').scrollIntoView({behavior:'smooth'})">Descubre más</button>
+    <div class="card-edad" id="mundo">
+      <div class="card-icono">🌍</div>
+      <h3>6. EL INGLÉS HOY</h3>
+      <div class="edad-rango">Datos y cifras</div>
+      <p>Cuántas personas hablan inglés en el mundo y por qué aprenderlo te abre puertas académicas, laborales y personales.</p>
+      <button class="btn-card" onclick="document.getElementById('mundo-section').scrollIntoView({behavior:'smooth'})">Descubre más</button>
     </div>
 
   </div>
@@ -104,52 +104,78 @@
   </div>
 </div>
 
-<!-- ===== SECCIÓN RECURSOS ===== -->
-<section class="section-recursos" id="recursos-section">
-  <div class="recursos-inner">
-    <h2 class="section-titulo">Recursos que incorpora la plataforma</h2>
-    <div class="grid-recursos">
-      <div class="recurso-item">
-        <div class="emoji">🖼️</div>
-        <h4>Imágenes</h4>
-        <p>Ilustraciones, fotografías, íconos y tarjetas visuales.</p>
+<!-- ===== SECCIÓN EL INGLÉS EN EL MUNDO ===== -->
+<section class="section-mundo" id="mundo-section">
+  <div class="mundo-inner">
+    <h2 class="section-titulo">El inglés en cifras</h2>
+    <div class="grid-metricas">
+      <div class="metrica-item">
+        <div class="metrica-numero">≈ 1.500 M</div>
+        <h4>personas hablan inglés en el mundo</h4>
+        <p>Nativos y no nativos suman casi 1.493 millones de hablantes (Ethnologue, 2026). Es el idioma más hablado del planeta.</p>
       </div>
-      <div class="recurso-item">
-        <div class="emoji">🎬</div>
-        <h4>Videos</h4>
-        <p>Clases breves, canciones, diálogos y pronunciación.</p>
+      <div class="metrica-item">
+        <div class="metrica-numero">3 de 4</div>
+        <h4>hablantes no son nativos</h4>
+        <p>La mayoría de quienes hablan inglés lo aprendió como segunda lengua: es una habilidad que se adquiere, no un privilegio.</p>
       </div>
-      <div class="recurso-item">
-        <div class="emoji">📊</div>
-        <h4>Infografías</h4>
-        <p>Resumen visual de vocabulario y expresiones.</p>
+      <div class="metrica-item">
+        <div class="metrica-numero">57</div>
+        <h4>países lo tienen como idioma oficial</h4>
+        <p>Además, es idioma oficial de la ONU, la Unión Europea, la Commonwealth y la ASEAN.</p>
       </div>
-      <div class="recurso-item">
-        <div class="emoji">📄</div>
-        <h4>Documentos</h4>
-        <p>Guías, ejercicios y fichas de práctica.</p>
+      <div class="metrica-item">
+        <div class="metrica-numero">49,5%</div>
+        <h4>del contenido web está en inglés</h4>
+        <p>Casi la mitad de los sitios web del mundo se escriben en inglés (W3Techs, octubre 2026).</p>
       </div>
-      <div class="recurso-item">
-        <div class="emoji">🔗</div>
-        <h4>Enlaces</h4>
-        <p>Acceso a recursos externos confiables.</p>
+      <div class="metrica-item">
+        <div class="metrica-numero">1 de 5</div>
+        <h4>personas en el mundo lo hablan</h4>
+        <p>Alrededor del 18,8% de la población mundial habla inglés (The World Factbook, CIA): la lengua común entre personas de distintos países.</p>
       </div>
-      <div class="recurso-item">
-        <div class="emoji">🎮</div>
-        <h4>Actividades</h4>
-        <p>Cuestionarios, juegos y formularios interactivos.</p>
-      </div>
-      <div class="recurso-item">
-        <div class="emoji">🔊</div>
-        <h4>Audios</h4>
-        <p>Pronunciación, conversaciones y listening.</p>
-      </div>
-      <div class="recurso-item">
-        <div class="emoji">✅</div>
-        <h4>Autoevaluación</h4>
-        <p>Comprueba tus avances de forma autónoma.</p>
+      <div class="metrica-item">
+        <div class="metrica-numero">×8</div>
+        <h4>más contenido web que en español</h4>
+        <p>El inglés domina el 49,5% de los sitios web frente al 6,1% del español (W3Techs, octubre 2026).</p>
       </div>
     </div>
+
+    <h2 class="section-titulo">¿Por qué es importante hablar inglés?</h2>
+    <div class="grid-importancia">
+      <div class="importancia-item">
+        <div class="emoji">💼</div>
+        <h4>Trabajo y oportunidades</h4>
+        <p>El inglés es el segundo idioma más solicitado por las empresas y abre las puertas a empleos remotos e internacionales mejor pagados.</p>
+      </div>
+      <div class="importancia-item">
+        <div class="emoji">🎓</div>
+        <h4>Estudios y becas</h4>
+        <p>Gran parte de las universidades, becas y programas de intercambio exigen o enseñan en inglés.</p>
+      </div>
+      <div class="importancia-item">
+        <div class="emoji">📖</div>
+        <h4>Conocimiento sin barreras</h4>
+        <p>La mayor parte de la investigación científica, los cursos en línea y la documentación técnica se publica primero en inglés.</p>
+      </div>
+      <div class="importancia-item">
+        <div class="emoji">✈️</div>
+        <h4>Viajar con confianza</h4>
+        <p>Aeropuertos, hoteles, restaurantes y turismo: el inglés es la lengua estándar de la aviación internacional y de los viajes.</p>
+      </div>
+      <div class="importancia-item">
+        <div class="emoji">🧠</div>
+        <h4>Mente activa a toda edad</h4>
+        <p>Aprender idiomas ejercita la memoria y la atención, y varios estudios lo asocian con un envejecimiento cognitivo más saludable.</p>
+      </div>
+      <div class="importancia-item">
+        <div class="emoji">🎬</div>
+        <h4>Disfrutar más</h4>
+        <p>Películas, series, música, videojuegos y redes sociales se entienden sin esperar una traducción.</p>
+      </div>
+    </div>
+
+    <p class="fuentes">Fuentes: Ethnologue (2026) · W3Techs (octubre 2026) · The World Factbook (CIA) · Naciones Unidas</p>
   </div>
 </section>
 
@@ -188,12 +214,12 @@
 <footer>
   <div class="footer-links">
     <a href="#contacto">Contacto</a>
-    <a href="#">Términos</a>
-    <a href="#">Privacidad</a>
+    <a href="#" onclick="abrirInfo('terminos'); return false;">Términos</a>
+    <a href="#" onclick="abrirInfo('privacidad'); return false;">Privacidad</a>
   </div>
   <div class="footer-redes">
-    <a href="#" title="Facebook">📘</a>
-    <a href="#" title="Instagram">📷</a>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
   </div>
   <div class="copy">
     © 2026 El Inglés para Todos · Universidad del Zulia · Curso: Tecnopedagogía<br>

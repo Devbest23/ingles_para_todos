@@ -279,6 +279,18 @@
     font-size: 0.85rem;
     margin-bottom: 20px;
   }
+  .modal .info-lista {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .modal .info-lista li {
+    padding: 12px 16px;
+    background: var(--azul-suave);
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: var(--texto-oscuro);
+  }
   /* ----- Vista 1: lista de ejercicios ----- */
   .progreso {
     display: flex;
@@ -493,36 +505,81 @@
   }
   .btn-secundario:hover { background: #d7e5fb; }
 
-  /* ===== SECCIÓN RECURSOS ===== */
-  .section-recursos {
+  /* ===== SECCIÓN EL INGLÉS EN EL MUNDO ===== */
+  .section-mundo {
     background: var(--azul-suave);
     padding: 60px 24px;
   }
-  .recursos-inner {
+  .mundo-inner {
     max-width: 1200px;
     margin: 0 auto;
   }
-  .grid-recursos {
+  .grid-metricas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
   }
-  .recurso-item {
+  .metrica-item {
     background: white;
-    padding: 24px 20px;
+    padding: 26px 22px;
     border-radius: var(--radio);
     text-align: center;
     box-shadow: var(--sombra);
+    border-top: 4px solid var(--naranja);
     transition: var(--transicion);
   }
-  .recurso-item:hover { transform: translateY(-4px); }
-  .recurso-item .emoji { font-size: 2.2rem; margin-bottom: 10px; }
-  .recurso-item h4 {
+  .metrica-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+  }
+  .metrica-numero {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--azul-principal);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .metrica-item h4 {
+    color: var(--texto-oscuro);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  .metrica-item p {
+    font-size: 0.8rem;
+    color: var(--texto-gris);
+  }
+  .grid-importancia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .importancia-item {
+    background: white;
+    padding: 22px;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    border-left: 4px solid var(--azul-claro);
+    transition: var(--transicion);
+  }
+  .importancia-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+    border-left-color: var(--naranja);
+  }
+  .importancia-item .emoji { font-size: 1.8rem; margin-bottom: 8px; }
+  .importancia-item h4 {
     color: var(--azul-principal);
     font-size: 0.95rem;
     margin-bottom: 6px;
   }
-  .recurso-item p { font-size: 0.8rem; color: var(--texto-gris); }
+  .importancia-item p { font-size: 0.8rem; color: var(--texto-gris); }
+  .fuentes {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--texto-gris);
+    opacity: 0.8;
+    margin-top: 36px;
+  }
 
   /* ===== CONTACTO ===== */
   .section-contacto {
@@ -587,13 +644,11 @@
     margin-bottom: 20px;
   }
   .footer-redes a {
-    width: 40px; height: 40px;
-    border-radius: 50%;
+    padding: 8px 18px;
+    border-radius: 50px;
     background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
     transition: var(--transicion);
   }
   .footer-redes a:hover { background: var(--naranja); transform: translateY(-3px); }
