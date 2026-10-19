@@ -279,26 +279,219 @@
     font-size: 0.85rem;
     margin-bottom: 20px;
   }
-  .modal ul {
-    list-style: none;
+  /* ----- Vista 1: lista de ejercicios ----- */
+  .progreso {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--texto-gris);
+    white-space: nowrap;
+  }
+  .progreso .barra {
+    flex: 1;
+    height: 8px;
+    background: var(--azul-suave);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  .progreso .barra span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--azul-claro), var(--naranja));
+    border-radius: 50px;
+    transition: width 0.4s ease;
+  }
+  .instruccion {
+    font-size: 0.85rem;
+    color: var(--texto-gris);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .modal-lista {
     display: grid;
     gap: 10px;
   }
-  .modal ul li {
-    padding: 12px 16px;
-    background: var(--azul-suave);
-    border-radius: 10px;
-    font-size: 0.92rem;
+  .ejercicio-btn {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    background: var(--azul-suave);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    transition: var(--transicion);
   }
-  .modal ul li::before {
-    content: '✓';
-    color: var(--naranja);
-    font-weight: 900;
+  .ejercicio-btn:hover {
+    background: #f0f6ff;
+    border-color: var(--naranja);
+    transform: translateX(4px);
+  }
+  .ejercicio-btn .num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: white;
+    color: var(--azul-principal);
+    font-weight: 800;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
+  .ejercicio-btn .tema { flex: 1; }
+  .ejercicio-btn .estado { flex-shrink: 0; }
+  .ejercicio-btn.completado {
+    background: #eafaf1;
+    border-color: #9be3bb;
+  }
+  .ejercicio-btn.completado .num {
+    background: #2ecc71;
+    color: white;
+  }
+
+  /* ----- Vista 2: ejercicio ----- */
+  .btn-volver {
+    background: none;
+    border: none;
+    color: var(--azul-claro);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0 0 14px;
+    cursor: pointer;
+    transition: var(--transicion);
+  }
+  .btn-volver:hover { color: var(--azul-principal); text-decoration: underline; }
+  .ejercicio-etiqueta {
+    display: inline-block;
+    background: var(--azul-suave);
+    color: var(--azul-principal);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+  .pregunta-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #1a3a8f, #4a7bc8);
+    color: white;
+    padding: 20px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .pregunta-box .texto { flex: 1; }
+  .btn-audio {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transicion);
+  }
+  .btn-audio:hover { background: var(--naranja); transform: scale(1.08); }
+  .opciones {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .opcion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    background: white;
+    border: 2px solid #dfe6f3;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--texto-oscuro);
+    cursor: pointer;
+    transition: var(--transicion);
+  }
+  .opcion:hover:not(:disabled) {
+    border-color: var(--azul-claro);
+    background: var(--azul-suave);
+  }
+  .opcion .letra {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--azul-suave);
+    color: var(--azul-principal);
+    font-weight: 800;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .opcion:disabled { cursor: default; }
+  .opcion.correcta {
+    border-color: #2ecc71;
+    background: #eafaf1;
+  }
+  .opcion.correcta .letra { background: #2ecc71; color: white; }
+  .opcion.incorrecta {
+    border-color: #e74c3c;
+    background: #fdecea;
+  }
+  .opcion.incorrecta .letra { background: #e74c3c; color: white; }
+  .feedback {
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+  .feedback.ok { background: #eafaf1; border-left: 4px solid #2ecc71; }
+  .feedback.error { background: #fdecea; border-left: 4px solid #e74c3c; }
+  .feedback strong { display: block; margin-bottom: 6px; }
+  .feedback .explica { color: var(--texto-gris); }
+  .ejercicio-acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-primario, .btn-secundario {
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 12px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transicion);
+  }
+  .btn-primario {
+    background: var(--naranja);
+    color: white;
+    box-shadow: 0 4px 14px rgba(245, 166, 35, 0.35);
+  }
+  .btn-primario:hover { background: var(--naranja-hover); transform: translateY(-2px); }
+  .btn-secundario {
+    background: var(--azul-suave);
+    color: var(--azul-principal);
+  }
+  .btn-secundario:hover { background: #d7e5fb; }
 
   /* ===== SECCIÓN RECURSOS ===== */
   .section-recursos {
@@ -421,4 +614,9 @@
     nav.open { max-height: 500px; }
     nav ul { flex-direction: column; padding: 16px; gap: 4px; }
     nav a { display: block; }
+  }
+  @media (max-width: 520px) {
+    .modal { padding: 26px 18px; }
+    .pregunta-box { font-size: 0.95rem; padding: 16px; }
+    .btn-primario, .btn-secundario { width: 100%; text-align: center; }
   }
