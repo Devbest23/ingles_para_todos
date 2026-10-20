@@ -289,6 +289,7 @@ const info = {
       'Los ejercicios y contenidos están disponibles para la práctica personal y educativa. Puedes usarlos en clase citando la fuente.',
       'Las cifras y datos de la sección "El inglés en cifras" provienen de las fuentes indicadas (Ethnologue, W3Techs, The World Factbook y Naciones Unidas).',
       'La plataforma no garantiza resultados de aprendizaje: el progreso depende de la práctica constante de cada persona.',
+      'Los videos se reproducen mediante el reproductor oficial de YouTube y pertenecen a sus respectivos canales.',
       'No se permite el uso comercial del material sin autorización del equipo.'
     ]
   },
@@ -296,10 +297,10 @@ const info = {
     titulo: 'Política de privacidad',
     subtitulo: 'El Inglés para Todos',
     items: [
-      'Esta plataforma no recopila datos personales: no hay formularios, registros ni cuentas de usuario.',
+      'Los datos que escribes en el formulario de contacto (nombre, edad, correo y mensaje) se usan solo para responder tu consulta.',
+      'El formulario se envía desde tu propia aplicación de correo; esta página no almacena los datos que escribes.',
       'El progreso de los ejercicios se guarda únicamente en tu navegador mientras la página está abierta; al recargarla o cerrarla, se reinicia.',
-      'No se usan cookies de seguimiento ni herramientas de publicidad.',
-      'Las marcas, enlaces externos y contenidos citados pertenecen a sus respectivos dueños.',
+      'No se usan cookies de seguimiento ni herramientas de publicidad propias. Los videos incrustados de YouTube pueden aplicar sus propias políticas de privacidad y cookies.',
       'Para dudas sobre privacidad, escribe a abienegomontiel@gmail.com.'
     ]
   }
@@ -453,7 +454,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ---------- Nav activo según scroll ---------- */
 window.addEventListener('scroll', () => {
-  const secciones = ['inicio', 'ninos', 'adolescentes', 'jovenes', 'adultos', 'mayores', 'mundo', 'contacto'];
+  const secciones = ['inicio', 'ninos', 'adolescentes', 'jovenes', 'adultos', 'mayores', 'mundo', 'videos', 'contacto'];
   let actual = 'inicio';
   secciones.forEach(id => {
     const el = document.getElementById(id);
@@ -463,3 +464,40 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + actual);
   });
 });
+
+/* ---------- FORMULARIO DE CONTACTO ---------- */
+const formContacto = document.getElementById('formContacto');
+if (formContacto) {
+  formContacto.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const edad = document.getElementById('edad').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+    const estado = document.getElementById('formEstado');
+
+    const errores = [];
+    if (nombre.length < 2) errores.push('Escribe tu nombre (mínimo 2 letras).');
+    if (!edad || Number(edad) < 5 || Number(edad) > 120) errores.push('La edad debe estar entre 5 y 120 años.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) errores.push('Escribe un correo electrónico válido.');
+
+    estado.classList.remove('ok', 'error');
+    if (errores.length) {
+      estado.textContent = errores.join(' ');
+      estado.classList.add('error');
+      return;
+    }
+
+    const destino = 'abienegomontiel@gmail.com';
+    const asunto = encodeURIComponent('Contacto desde El Inglés para Todos');
+    const cuerpo = encodeURIComponent(
+      `Nombre: ${nombre}\nEdad: ${edad}\nCorreo: ${correo}\n\nMensaje:\n${mensaje || '(sin mensaje)'}`
+    );
+
+    estado.textContent = `¡Gracias, ${nombre}! Abrimos tu aplicación de correo para enviar el mensaje.`;
+    estado.classList.add('ok');
+    window.location.href = `mailto:${destino}?subject=${asunto}&body=${cuerpo}`;
+    formContacto.reset();
+  });
+}
